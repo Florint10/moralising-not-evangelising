@@ -38,6 +38,7 @@
 
 
 \RequirePackage[english]{babel}      % Load babel if you're unsure about the default language - mostly to be safe
+\RequirePackage{csquotes}            % When using babel with biblatex, csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.
 \RequirePackage{xcolor}              % For named colors
 \RequirePackage{eso-pic}             % required to place huge uni logo at the back - on title page
 \RequirePackage{datetime}			 % For Current Month and Year (cover page)
