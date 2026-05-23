@@ -430,16 +430,26 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
     {\printtext[brackets]{\printfield{note}}%
      \setunit{\addperiod\space}}%
   % 6. Dynamic Credits
-  \printtext{Digital game }%
-  \iffieldundef{userb}%
-    {\printtext{developed by }}%
-    {\printfield{userb}\addspace}%
-  \printlist{organization}%
-  % Publisher text - Used 'userc' so publisher can be written even if game is self-published
-  \iffieldundef{userc}%
-    {}%
-    {\setunit{\addcomma\space published by }%
-     \printfield{userc}}%
+  \printtext{Digital game}%
+  \setunit{\addspace}%
+  \setunit{\addspace}%
+  \iflistundef{organization}%
+    {\iffieldundef{userc}%
+       {}%
+       {\printtext{published by}%
+        \setunit{\addspace}%
+        \printfield{userc}}}%
+    {\iffieldundef{userb}%
+       {\printtext{developed by}}%
+       {\printfield{userb}\addspace}%
+     \printlist{organization}%
+     % Used 'userc' so publisher can be written even if game is self-published
+     \iffieldundef{userc}%
+       {}%
+       {\setunit{\addcomma\space}%
+        \printtext{published by}%
+        \setunit{\addspace}%
+        \printfield{userc}}}%
   % 7. URL
   \iffieldundef{url}%
     {}%
