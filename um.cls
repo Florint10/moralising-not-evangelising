@@ -391,3 +391,62 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
 {\endtabularx\par\vspace{\belowdisplayskip}}
 
 %% **************** Environments (End) *******************
+
+%% ***************** BibLatex (Start) ********************
+
+% 1. FIX THE VERSION BUG: Tell biblatex-apa to ONLY print the raw 
+
+\DeclareBibliographyDriver{software}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  % 1. Author
+  \usebibmacro{author}%
+  \setunit{\addperiod\space}%
+  % 2. (v. Version, Year) OR just (Year)
+  \iffieldundef{year}%
+    {}%
+    {\printtext[parens]{%
+       \iffieldundef{version}%
+         {}%
+         {\printtext{v.~}\printfield[default]{version}\setunit{\addcomma\space}}%
+       \printdate}%
+     \iffieldundef{origyear}%
+       {\setunit{\addperiod\space}}%
+       {\setunit{\addspace}}%
+    }%
+  % 3. [Year of original release]
+  \iffieldundef{origyear}%
+    {}%
+    {\printtext[brackets]{\printorigdate}%
+     \setunit{\addperiod\space}}%
+  % 4. Title
+  \printfield{title}%
+  \iffieldundef{note}%
+    {\setunit{\addperiod\space}}%
+    {\setunit{\addspace}}%
+  % 5. [Platform]
+  \iffieldundef{note}%
+    {}%
+    {\printtext[brackets]{\printfield{note}}%
+     \setunit{\addperiod\space}}%
+  % 6. Dynamic Credits
+  \printtext{Digital game }%
+  \iffieldundef{userb}%
+    {\printtext{developed by }}%
+    {\printfield{userb}\addspace}%
+  \printlist{organization}%
+  % Publisher text - Used 'userc' so publisher can be written even if game is self-published
+  \iffieldundef{userc}%
+    {}%
+    {\setunit{\addcomma\space published by }%
+     \printfield{userc}}%
+  % 7. URL
+  \iffieldundef{url}%
+    {}%
+    {\setunit{\addperiod\space}%
+     \printtext{Available online at: }%
+     \printfield{url}}%
+  \usebibmacro{finentry}%
+}
+
+%% ***************** BibLatex (End) ********************
