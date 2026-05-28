@@ -450,13 +450,31 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
         \printtext{published by}%
         \setunit{\addspace}%
         \printfield{userc}}}%
-  % 7. URL
+  % 7. URL & Access date
   \iffieldundef{url}%
     {}%
     {\setunit{\addperiod\space}%
-     \printtext{Available online at: }%
-     \printfield{url}}%
-  \usebibmacro{finentry}%
+     \iffieldundef{urlyear}%
+       {% Fallback if no access date is specified
+        \printtext{Available online at:}%
+        \setunit{\addspace}%
+        \printfield{url}}%
+       {% Custom format matching your example
+        \printtext{Accessed online}%
+        \setunit{\addspace}%
+        \iffieldundef{urlday}%
+          {}%
+          {\printtext{\mkbibordinal{\thefield{urlday}},}%
+           \setunit{\addspace}}%
+        \iffieldundef{urlmonth}%
+          {}%
+          {\mkbibmonth{\thefield{urlmonth}}\setunit{\addspace}}%
+        \printfield{urlyear}%
+        \setunit{\addspace}%
+        \printtext{at:}%
+        \setunit{\addspace}%
+        \printfield{url}}%
+    }%
 }
 
 %% ***************** BibLatex (End) ********************
