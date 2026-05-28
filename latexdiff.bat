@@ -1,0 +1,1 @@
+latexdiff ..\old\dissertation_main.tex .\dissertation_main.tex --flatten > diff.tex

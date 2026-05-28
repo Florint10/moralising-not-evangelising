@@ -1,0 +1,3 @@
+Run the .bat only in a copy of the git repo and make sure to rename the old dissertation directory to "old".
+
+If you get any compilation errors, also make sure to move the preamble to right after the instruction declaring the document class.
