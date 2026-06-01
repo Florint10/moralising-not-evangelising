@@ -396,12 +396,12 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
 
 % DEFINE @video ROLES FOR editortype KEY
 
-% Creator
-\NewBibliographyString{typecreator,typecreators}
+% Executive Producer
+\NewBibliographyString{typeexecutiveproducer,typeexecutiveproducers}
 
 \DefineBibliographyStrings{english}{
-  typecreator  = {Creator},
-  typecreators = {Creators},
+  typeexecutiveproducer  = {Executive Producer},
+  typeexecutiveproducers = {Executive Producers},
 }
 
 % CUSTOM CODE FOR DIGITAL GAME REFERENCES (@software)
