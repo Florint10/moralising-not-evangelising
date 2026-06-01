@@ -394,7 +394,17 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
 
 %% ***************** BibLatex (Start) ********************
 
-% 1. FIX THE VERSION BUG: Tell biblatex-apa to ONLY print the raw 
+% DEFINE @video ROLES FOR editortype KEY
+
+% Creator
+\NewBibliographyString{typecreator,typecreators}
+
+\DefineBibliographyStrings{english}{
+  typecreator  = {Creator},
+  typecreators = {Creators},
+}
+
+% CUSTOM CODE FOR DIGITAL GAME REFERENCES (@software)
 
 \DeclareBibliographyDriver{software}{%
   \usebibmacro{bibindex}%
