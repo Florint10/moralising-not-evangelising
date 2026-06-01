@@ -475,6 +475,13 @@ As a Master’s student, as per Regulation 58 of the General Regulations for Uni
         \setunit{\addspace}%
         \printfield{url}}%
     }%
+  % 8. ADDENDUM
+  \iffieldundef{addendum}
+    {}%
+    {\setunit{\addperiod\space}%
+     \printfield{addendum}}%
+  \printunit{\addperiod}%
+  \usebibmacro{finentry}%
 }
 
 %% ***************** BibLatex (End) ********************
