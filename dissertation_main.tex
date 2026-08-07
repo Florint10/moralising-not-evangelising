@@ -33,6 +33,7 @@
 
 \usepackage{blindtext} %% for some dummy text, remove in your writeup
 \usepackage{enumitem}
+\usepackage{pdfpages}
 
 %% ***************** (Your) Packages (End) *******************
 
@@ -96,6 +97,7 @@
     \maketitle
     \input{frontmatter/copyright}       
     %% The originality statement is *NOT* part of the dissertation but submitted separately.
+    \includepdf[pages=-]{frontmatter/authenticityform.pdf}
     \input{frontmatter/dedication}        % include a dedication.tex file
     \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
     \input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
